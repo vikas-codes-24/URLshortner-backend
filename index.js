@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth");
 const app = express();
 const PORT = 8000;
 const cors = require("cors");
+require("dotenv").config();
 //connections
 connectMongoDb("mongodb://127.0.0.1:27017/url-shortner").then(() =>
   console.log("mongoDB connected"),

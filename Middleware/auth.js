@@ -9,7 +9,7 @@ function checkAuth(req, res, next) {
     });
   }
   try {
-    const decoded = jwt.verify(authHeader, "vikas-secret-key");
+    const decoded = jwt.verify(authHeader, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
