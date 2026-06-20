@@ -4,11 +4,12 @@ const { URL } = require("./models/url");
 const { connectMongoDb } = require("./connection");
 const authRoute = require("./routes/auth");
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const cors = require("cors");
 require("dotenv").config();
 //connections
-connectMongoDb("mongodb://127.0.0.1:27017/url-shortner").then(() =>
+console.log("MONGO_URL:", process.env.MONGO_URL);
+connectMongoDb(process.env.MONGO_URL).then(() =>
   console.log("mongoDB connected"),
 );
 
